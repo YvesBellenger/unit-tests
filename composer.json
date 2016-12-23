@@ -1,5 +1,5 @@
 {
-    "name": "pimolo/unit-tests",
+    "name": "YvesBellenger/unit-tests",
     "type": "library",
     "require-dev": {
         "phpunit/phpunit": "^5.7"

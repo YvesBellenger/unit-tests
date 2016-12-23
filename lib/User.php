@@ -4,6 +4,11 @@ namespace App;
 
 class User
 {
+     /**
+     * @var string
+     */
+    private $email;
+
     /**
      * @var string
      */
@@ -17,27 +22,22 @@ class User
     /**
      * @var int
      */
-    private $old;
+    private $age;
 
     /**
-     * @var string
-     */
-    private $email;
-
-    /**
+     * @param $email
      * @param $firstname
      * @param $lastname
-     * @param $old
-     * @param $email
+     * @param $age
      * @return User
      */
-    public static function create($firstname, $lastname, $old, $email)
+    public static function create($email, $firstname, $lastname, $age)
     {
         return (new self)
+            ->setEmail($email)
             ->setFirstname($lastname)
             ->setLastname($lastname)
-            ->setOld($old)
-            ->setEmail($email)
+            ->setAge($age)
         ;
     }
 
@@ -46,8 +46,11 @@ class User
      */
     public function isValid()
     {
-        return (!empty($this->getEmail()) && !empty($this->getFirstname()) && !empty($this->getLastname()) && !empty($this->getOld()))
-            && $this->getOld() >= 13
+        return (!empty($this->getEmail()) 
+            && !empty($this->getFirstname()) 
+            && !empty($this->getLastname()) 
+            && !empty($this->getAge()))
+            && $this->getAge() >= 13
         ;
     }
 
@@ -92,7 +95,7 @@ class User
     /**
      * @return int
      */
-    public function getOld()
+    public function getAge()
     {
         return $this->old;
     }
@@ -101,7 +104,7 @@ class User
      * @param int $old
      * @return User
      */
-    public function setOld($old)
+    public function setAge($old)
     {
         $this->old = $old;
 
